@@ -1,6 +1,6 @@
 ﻿namespace keyPressAnimations
 {
-    partial class Form1
+    partial class Game
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // gameTimer
-            // 
-            this.gameTimer.Interval = 16;
-            this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
-            // 
-            // Form1
+            // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Khaki;
-            this.ClientSize = new System.Drawing.Size(609, 531);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1196, 630);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form1";
+            this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "animation";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            this.Text = "anstymation";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer gameTimer;
     }
 }
 

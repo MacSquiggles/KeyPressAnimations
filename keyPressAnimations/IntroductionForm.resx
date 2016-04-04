@@ -117,4 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="introLabel.Text" xml:space="preserve">
+    <value>This is you. Ruler of the angsty teenagers.                                                                                                                                                                     This is kindness.                                                                                             If touched by kindness you will mature,                                                        grow old, and die. Your job is to stay alive! avoid kindness at all costs!                                                                                                                             While on your quest to stay the same cynical teen everyone knows you are, society will be firing at you every step of the way. Avoid their bullets or you could die!                                                                                                                                            Good luck you sarcastic scum!</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="monsterPictureBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        /9j/4AAQSkZJRgABAQEAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERET
+        FhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4e
+        Hh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAyADIDASIAAhEBAxEB/8QA
+        HwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIh
+        MUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW
+        V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG
+        x8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQF
+        BgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAV
+        YnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+        hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq
+        8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD7LrltWu7qx8QyfZ7hjGyK7RkZUH/69b2r6lY6Tp8uoajcpbWs
+        QBeR+gycD9SK81s/FOm+JNdvrnT4J1jjYRtJIQPMHRWCjnB5xnHX8rjFvU9TLsLUqKVTlvFLV9Oh6Vpl
+        9Fewb1+Vx99M8g/4Vx/jX4k6f4fupbO3s5b+5iYK6o2Fz3GQDyPpiqWq6n/ZenT3a3HkyeWyRsDyWIOB
+        XF+DNFtLzVYY9SuUjmaJpltjMFmkUEfOF+8V55P09aG4QXNI9HB5Zho81bEfAtl3Z6H4T+JGm61bfv4G
+        s7sg7YWbO4+mcDB+tbvhu6ub27vJ55iVXaqRgYC559ee1eReKLeC28Qzzae9v5FtMqyCFwwgcqDscD7h
+        9j/eFereAyk9hPfxn5Lhxt+bPCjH4UXjKPNHqZ5jhMPSo+2oLSXzt5HR0UUVB88UtcsLHU9JuLHUoEnt
+        JUxIjkgEfUcj6iuO0jwbpGil7TSxNbRX5G2VixYSR5+XJGdrLkj6Hrmu5uwTbtgt/wABODWRr9rqF1p8
+        Nrb/ALxhhzKDtO5Tkd8j8Kak0tDuwmJqwXs4ztFvVX09bHE+ONBu5zFF9rgaKMglEOWJJwx/AY4+tZvh
+        y1vrXUYNMlisZtRNnL9n1BIt0sCb03RkkZKkkdwOOa5jxl4x1zTtUaxjtlsWjTEqyrucse/TAAwR3zXI
+        W19NHO97cXNyLydmZnXKnJ56jHXjih0KtZa2S+9n3eFyjEVcKlVatutL699Pv38ju/EDXmp2f2zS9Jhs
+        Y7iSS7uDGoEs5jAXzJiBjJwAFOTkYr2HwLpj6boaeYhiluNs0kWMBGKgEY7dM/U15/4Ov9OudGit9Ima
+        QQKocdJIjnlmB77s+ua9YsWleziaddshUbh70oyXLyJWsfM5zVcKaw8Y8qTfr8yaiiig+cIb6NZrOaJw
+        xV0ZSF6kEcgVR0jUrC5t4ms7uKaDyd6urDaVHGR6gYxn1rUPSqUahXZYjAJ1XCA4JCZ6nGDye3qKZpFr
+        laZzfxG8IaT4l04X0qst3bR7oZ4+eOvIPBHevONL+F9zf3At49WjWNELM7Qkkk+vPWvZLm2ez0G7ia4u
+        bwkSPvmYF/mJOOAOBnAGOgqLwkkf9nNMuCZJDlh3A4FZOrUVVRi9D2sJnGKwmGlCnPRPTr+ZnfD/AMF2
+        nhTT5YBP9suJZvNedoghyBgDA9Bnv3rqqKK1bu7s8evXqYio6lR3kwooopGIVEkECTmZYY1kK7S4UBiM
+        k4z6ZJP40UU0aQ2kS1WsIo4o5EijSNfMY4UYHWiioe6EvgfyLNFFFUQFFFFAH//Z
+</value>
+  </data>
 </root>
