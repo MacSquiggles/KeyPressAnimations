@@ -62,7 +62,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::keyPressAnimations.Properties.Resources.up;
+            this.pictureBox1.BackgroundImage = global::keyPressAnimations.Properties.Resources.down;
             this.pictureBox1.Location = new System.Drawing.Point(502, 61);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 53);

@@ -12,13 +12,14 @@ namespace keyPressAnimations
     public partial class GameScreen : UserControl
     {
         //initial starting points for player
-        Player p = new Player(500, 400, 50, 4);
-        Monster m = new Monster(200, 200, 50, 6);
-        Image[] images;
+        Player p = new Player(300, 300, 50, 15);
+        Monster m = new Monster(200, 200, 50, 14);
 
-        int i = 2;
-        int bulletSpeed = 15;
+        public static string title = "";
+        int bulletSpeed = 20;
         int bulletSize = 10;
+        public static string direct = "";
+        bool fireOK;
 
         SolidBrush purpleBrush = new SolidBrush(Color.Purple);
         SolidBrush blueBrush = new SolidBrush(Color.RoyalBlue);
@@ -30,15 +31,13 @@ namespace keyPressAnimations
         Random rand = new Random();
 
         //determines whether a key is being pressed or not
-        Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown;
-
+        Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown, spaceArrowDown;
         List<Bullet> bullets = new List<Bullet>();
+
         public GameScreen()
         {
             InitializeComponent();
             colours = new SolidBrush[] { purpleBrush, blueBrush, greenBrush };
-            images = new Image[] { Properties.Resources.right, Properties.Resources.left, Properties.Resources.up, Properties.Resources.down };
-
         }
 
         private void GameScreen_Load(object sender, EventArgs e)
@@ -47,30 +46,6 @@ namespace keyPressAnimations
             //start the timer when the program starts
             gameTimer.Enabled = true;
             gameTimer.Start();
-            Bullet b = new Bullet(rand.Next(0, 300), 0, bulletSize, bulletSpeed, rand.Next(0, 3));
-            bullets.Add(b);
-        }
-        private void GameScreen_KeyDown(object sender, KeyEventArgs e)
-        {
-
-            //check to see if a key is pressed and set is KeyDown value to true if it has
-            switch (e.KeyCode)
-            {
-                case Keys.Left:
-                    leftArrowDown = true;
-                    break;
-                case Keys.Down:
-                    downArrowDown = true;
-                    break;
-                case Keys.Right:
-                    rightArrowDown = true;
-                    break;
-                case Keys.Up:
-                    upArrowDown = true;
-                    break;
-                default:
-                    break;
-            }
         }
 
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
@@ -90,6 +65,34 @@ namespace keyPressAnimations
                 case Keys.Up:
                     upArrowDown = false;
                     break;
+                case Keys.Space:
+                    spaceArrowDown = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            //check to see if a key is pressed and set is KeyDown value to true if it has
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    leftArrowDown = true;
+                    break;
+                case Keys.Down:
+                    downArrowDown = true;
+                    break;
+                case Keys.Right:
+                    rightArrowDown = true;
+                    break;
+                case Keys.Up:
+                    upArrowDown = true;
+                    break;
+                case Keys.Space:
+                    spaceArrowDown = true;
+                    break;
                 default:
                     break;
             }
@@ -97,48 +100,99 @@ namespace keyPressAnimations
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-
-            //checks to see if any keys have been pressed and adjusts the X or Y value
-            //for the rectangle appropriately
+            #region movePlayer
             if (leftArrowDown && p.x > 0)
             {
-                i = 1;
                 p.move(p, "left");
             }
-            if (downArrowDown && p.y < this.Height)
+            if (downArrowDown && p.y < this.Height - p.size)
             {
-                i = 3;
                 p.move(p, "down");
             }
-            if (rightArrowDown && p.x < this.Width)
+            if (rightArrowDown && p.x < this.Width - p.size)
             {
-                i = 0;
                 p.move(p, "right");
             }
             if (upArrowDown && p.y > 0)
             {
-                i = 2;
                 p.move(p, "up");
             }
-            else
+            #endregion
+
+            #region moveMonster
+            if (p.y >  m.y && m.y < this.Height - m.size)
             {
-                i = 2;
+                m.y = m.y + m.speed;
+            }
+            else if (p.y < m.y && m.y < 0)
+            {
+                m.y = m.y - m.speed;
+            }
+            if (p.x > m.x && m.x < this.Width - m.size)
+            {
+                m.x = m.x + m.speed;
+            }
+            else if (p.x < m.x && m.x > 0)
+            {
+                m.x = m.x - m.speed;
+            }
+            #endregion
+
+            #region moveBullet
+            if (spaceArrowDown && fireOK == true)
+            {
+                Bullet b = new Bullet(p.x + (p.size/2), p.y + (p.size / 2), bulletSize, bulletSpeed, rand.Next(0, 3));
+                bullets.Add(b);
+                if (p.i == 0)
+                {
+                    direct = "left";
+                }
+                if (p.i == 1)
+                {
+                    direct = "right";
+                }
+                if (p.i == 2)
+                {
+                    direct = "up";
+                }
+                if (p.i == 3)
+                {
+                    direct = "down";
+                }
+                fireOK = false;
+            }
+            if (bullets[0].y > this.Height)
+            {
+                bullets.RemoveAt(0);
+                fireOK = true;
+            }
+            if (bullets[0].y < 0)
+            {
+                bullets.RemoveAt(0);
+                fireOK = true;
+            }
+            if (bullets[0].x < 0)
+            {
+                bullets.RemoveAt(0);
+                fireOK = true;
+            }
+
+            if (bullets[0].x > this.Width)
+            {
+                bullets.RemoveAt(0);
+                fireOK = true;
             }
 
             foreach (Bullet b in bullets)
             {
-                b.y += b.speed;
+                b.move(b, direct);
             }
-
-            if (bullets[0].y > this.Height)
-            {
-                bullets.RemoveAt(0);
-            }
+            #endregion
 
             #region collision
             foreach (Bullet b in bullets)
             {
-                if (b.bulletCollision(p, b) == true)
+                if (b.bulletCollision(m, b) == true)
                 {
                     gameTimer.Enabled = false;
                     endGame();
@@ -147,7 +201,7 @@ namespace keyPressAnimations
             if (m.monsterCollision(p, m) == true)
             {
                 gameTimer.Enabled = false;
-                endGame();
+                winGame();
             }
             #endregion
             //refresh the screen, which causes the Form1_Paint method to run
@@ -161,20 +215,31 @@ namespace keyPressAnimations
             {
                 e.Graphics.FillRectangle(colours[b.colour], b.x, b.y, b.size, b.size);
             }
-            e.Graphics.DrawImage(images[i], p.x, p.y, p.size, p.size);
-            e.Graphics.DrawImage(Properties.Resources.monster, m.x, m.y, m.size, m.size);
+            e.Graphics.DrawImage(p.images[p.i], p.x, p.y, p.size, p.size);
+            e.Graphics.DrawImage(m.mImages[1], m.x, m.y, m.size, m.size);
         }
 
 
         private void endGame()
         {
-        EndScreen es = new EndScreen();
-        Form f = this.FindForm();
-        f.Controls.Remove(this);
+            title = "You lose!!";
+            EndScreen es = new EndScreen();
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
             es.Location = new Point((f.Width - es.Width) / 2, (f.Height - es.Height) / 2);
             f.Controls.Add(es);
             es.BringToFront();
         }
-       
+        private void winGame()
+        {
+            title = "You win!!!!!!";
+            EndScreen es = new EndScreen();
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
+            es.Location = new Point((f.Width - es.Width) / 2, (f.Height - es.Height) / 2);
+            f.Controls.Add(es);
+            es.BringToFront();
+        }
+
     }
 }

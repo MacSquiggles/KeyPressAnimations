@@ -41,9 +41,8 @@
             this.gameOverLabel.Font = new System.Drawing.Font("Pristina", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameOverLabel.Location = new System.Drawing.Point(237, 54);
             this.gameOverLabel.Name = "gameOverLabel";
-            this.gameOverLabel.Size = new System.Drawing.Size(410, 126);
+            this.gameOverLabel.Size = new System.Drawing.Size(0, 126);
             this.gameOverLabel.TabIndex = 0;
-            this.gameOverLabel.Text = "Game Over";
             // 
             // playAgainButton
             // 
@@ -93,6 +92,7 @@
             this.Controls.Add(this.gameOverLabel);
             this.Name = "EndScreen";
             this.Size = new System.Drawing.Size(900, 700);
+            this.Load += new System.EventHandler(this.EndScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

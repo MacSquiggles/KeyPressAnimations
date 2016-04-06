@@ -40,5 +40,10 @@ namespace keyPressAnimations
             f.Controls.Add(inf);
             inf.BringToFront();
         }
+
+        private void EndScreen_Load(object sender, EventArgs e)
+        {
+            gameOverLabel.Text = GameScreen.title;
+        }
     }
 }

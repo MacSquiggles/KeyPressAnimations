@@ -18,9 +18,29 @@ namespace keyPressAnimations
             speed = _speed;
             colour = _colour;
         }
-        public bool bulletCollision(Player p, Bullet b)
+        public void move(Bullet b, string direction)
         {
-            Rectangle pRec = new Rectangle(p.x, p.y, p.size, p.size);
+            if (direction == "left")
+            {
+                b.x -= b.speed;
+            }
+            else if (direction == "right")
+            {
+                b.x += b.speed;
+            }
+
+            else if (direction == "up")
+            {
+                b.y -= b.speed;
+            }
+            else if (direction == "down")
+            {
+                b.y += b.speed;
+            }
+        }
+        public bool bulletCollision(Monster m, Bullet b)
+        {
+            Rectangle pRec = new Rectangle(m.x, m.y, m.size, m.size);
             Rectangle bRec = new Rectangle(b.x, b.y, b.size, b.size);
             if (pRec.IntersectsWith(bRec))
             {
