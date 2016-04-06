@@ -9,7 +9,7 @@ namespace keyPressAnimations
     class Monster
     {
         public int x, y, size, speed;
-        Image[] mImages;
+        public Image[] mImages;
 
         public Monster(int _x, int _y, int _size, int _speed)
         {
@@ -17,7 +17,7 @@ namespace keyPressAnimations
             y = _y;
             size = _size;
             speed = _speed;
-            mImages = new Image[] { Properties.Resources.monster, Properties.Resources.monster2, Properties.Resources.monster3 };
+            
         }
 
         public bool monsterCollision(Player p, Monster m)

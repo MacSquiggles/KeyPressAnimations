@@ -34,16 +34,18 @@
             // 
             // gameTimer
             // 
+            this.gameTimer.Interval = 16;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
             // GameScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::keyPressAnimations.Properties.Resources.white_background;
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "GameScreen";
-            this.Size = new System.Drawing.Size(1200, 700);
+            this.Size = new System.Drawing.Size(800, 455);
             this.Load += new System.EventHandler(this.GameScreen_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);

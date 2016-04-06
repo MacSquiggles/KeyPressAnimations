@@ -12,8 +12,8 @@ namespace keyPressAnimations
     public partial class GameScreen : UserControl
     {
         //initial starting points for player
-        Player p = new Player(300, 300, 50, 15);
-        Monster m = new Monster(200, 200, 50, 14);
+        Player p = new Player(300, 300, 50, 8);
+        Monster m = new Monster(200, 200, 50, 3);
 
         public static string title = "";
         int bulletSpeed = 20;
@@ -37,6 +37,8 @@ namespace keyPressAnimations
         public GameScreen()
         {
             InitializeComponent();
+            p.images = new Image[] { Properties.Resources.right, Properties.Resources.left, Properties.Resources.up, Properties.Resources.down };
+            m.mImages = new Image[] { Properties.Resources.monster, Properties.Resources.monster2, Properties.Resources.monster3 };
             colours = new SolidBrush[] { purpleBrush, blueBrush, greenBrush };
         }
 
@@ -120,26 +122,26 @@ namespace keyPressAnimations
             #endregion
 
             #region moveMonster
-            if (p.y >  m.y && m.y < this.Height - m.size)
+            if (p.y > m.y)
             {
                 m.y = m.y + m.speed;
             }
-            else if (p.y < m.y && m.y < 0)
+            else
             {
                 m.y = m.y - m.speed;
             }
-            if (p.x > m.x && m.x < this.Width - m.size)
+            if (p.x > m.x)
             {
                 m.x = m.x + m.speed;
             }
-            else if (p.x < m.x && m.x > 0)
+            else
             {
                 m.x = m.x - m.speed;
             }
             #endregion
 
             #region moveBullet
-            if (spaceArrowDown && fireOK == true)
+            if (spaceArrowDown) //&& fireOK == true)
             {
                 Bullet b = new Bullet(p.x + (p.size/2), p.y + (p.size / 2), bulletSize, bulletSpeed, rand.Next(0, 3));
                 bullets.Add(b);
@@ -159,30 +161,32 @@ namespace keyPressAnimations
                 {
                     direct = "down";
                 }
-                fireOK = false;
-            }
-            if (bullets[0].y > this.Height)
-            {
-                bullets.RemoveAt(0);
-                fireOK = true;
-            }
-            if (bullets[0].y < 0)
-            {
-                bullets.RemoveAt(0);
-                fireOK = true;
-            }
-            if (bullets[0].x < 0)
-            {
-                bullets.RemoveAt(0);
-                fireOK = true;
+               // fireOK = false;
             }
 
-            if (bullets[0].x > this.Width)
-            {
-                bullets.RemoveAt(0);
-                fireOK = true;
-            }
-
+            //foreach (Bullet b in bullets)
+            //{
+            //    if (b.y > this.Height)
+            //    {
+            //        bullets.Remove(b);
+            //        fireOK = true;
+            //    }
+            //    if (b.y < 0)
+            //    {
+            //        bullets.Remove(b);
+            //        fireOK = true;
+            //    }
+            //    if (b.x > this.Width)
+            //    {
+            //        bullets.Remove(b);
+            //        fireOK = true;
+            //    }
+            //    if (b.x < 0)
+            //    {
+            //        bullets.Remove(b);
+            //        fireOK = true;
+            //    }
+            //}
             foreach (Bullet b in bullets)
             {
                 b.move(b, direct);
@@ -195,13 +199,13 @@ namespace keyPressAnimations
                 if (b.bulletCollision(m, b) == true)
                 {
                     gameTimer.Enabled = false;
-                    endGame();
+                    winGame();
                 }
             }
             if (m.monsterCollision(p, m) == true)
             {
                 gameTimer.Enabled = false;
-                winGame();
+                endGame();
             }
             #endregion
             //refresh the screen, which causes the Form1_Paint method to run
@@ -219,7 +223,6 @@ namespace keyPressAnimations
             e.Graphics.DrawImage(m.mImages[1], m.x, m.y, m.size, m.size);
         }
 
-
         private void endGame()
         {
             title = "You lose!!";
@@ -230,6 +233,7 @@ namespace keyPressAnimations
             f.Controls.Add(es);
             es.BringToFront();
         }
+
         private void winGame()
         {
             title = "You win!!!!!!";
