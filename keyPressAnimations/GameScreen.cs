@@ -11,16 +11,19 @@ namespace keyPressAnimations
 {
     public partial class GameScreen : UserControl
     {
+        #region Variables, brushes and starting set up
         //initial starting points for player
-        Player p = new Player(300, 300, 50, 8);
-        Monster m = new Monster(200, 200, 50, 3);
+        Player p = new Player(400, 300, 53, 8);
+        Monster m = new Monster(100, 300, 53, 5);
 
+        //Variables
         public static string title = "";
+        public string direct = "";
         int bulletSpeed = 20;
         int bulletSize = 10;
-        public static string direct = "";
-        bool fireOK;
+        bool fireOK = true;
 
+        //Brushes for the bullets
         SolidBrush purpleBrush = new SolidBrush(Color.Purple);
         SolidBrush blueBrush = new SolidBrush(Color.RoyalBlue);
         SolidBrush greenBrush = new SolidBrush(Color.SeaGreen);
@@ -28,11 +31,15 @@ namespace keyPressAnimations
         SolidBrush playerBrush = new SolidBrush(Color.Red);
         SolidBrush[] colours;
 
+        //creates a random number
         Random rand = new Random();
 
         //determines whether a key is being pressed or not
         Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown, spaceArrowDown;
+
+        //creates a list of bullets
         List<Bullet> bullets = new List<Bullet>();
+        #endregion
 
         public GameScreen()
         {
@@ -124,69 +131,73 @@ namespace keyPressAnimations
             #region moveMonster
             if (p.y > m.y)
             {
-                m.y = m.y + m.speed;
+                m.move(m, "down");
             }
             else
             {
-                m.y = m.y - m.speed;
+                m.move(m, "up");
             }
             if (p.x > m.x)
             {
-                m.x = m.x + m.speed;
+                m.move(m, "right");
             }
             else
             {
-                m.x = m.x - m.speed;
+                m.move(m, "left");
             }
             #endregion
 
             #region moveBullet
-            if (spaceArrowDown) //&& fireOK == true)
+            if (spaceArrowDown && fireOK == true)
             {
                 Bullet b = new Bullet(p.x + (p.size/2), p.y + (p.size / 2), bulletSize, bulletSpeed, rand.Next(0, 3));
                 bullets.Add(b);
-                if (p.i == 0)
-                {
-                    direct = "left";
-                }
-                if (p.i == 1)
+                if (p.pimage == 0)
                 {
                     direct = "right";
                 }
-                if (p.i == 2)
+                if (p.pimage == 1)
+                {
+                    direct = "left";
+                }
+                if (p.pimage == 2)
                 {
                     direct = "up";
                 }
-                if (p.i == 3)
+                if (p.pimage == 3)
                 {
                     direct = "down";
                 }
-               // fireOK = false;
+               fireOK = false;
             }
 
-            //foreach (Bullet b in bullets)
-            //{
-            //    if (b.y > this.Height)
-            //    {
-            //        bullets.Remove(b);
-            //        fireOK = true;
-            //    }
-            //    if (b.y < 0)
-            //    {
-            //        bullets.Remove(b);
-            //        fireOK = true;
-            //    }
-            //    if (b.x > this.Width)
-            //    {
-            //        bullets.Remove(b);
-            //        fireOK = true;
-            //    }
-            //    if (b.x < 0)
-            //    {
-            //        bullets.Remove(b);
-            //        fireOK = true;
-            //    }
-            //}
+            foreach (Bullet b in bullets)
+            {
+                if (b.y > this.Height)
+                {
+                    bullets.Remove(b);
+                    fireOK = true;
+                    break;
+                }
+                if (b.y < 0)
+                {
+                    bullets.Remove(b);
+                    fireOK = true;
+                    break;
+                }
+                if (b.x > this.Width)
+                {
+                    bullets.Remove(b);
+                    fireOK = true;
+                    break;
+                }
+                if (b.x < 0)
+                {
+                    bullets.Remove(b);
+                    fireOK = true;
+                    break;
+                }
+            }
             foreach (Bullet b in bullets)
             {
                 b.move(b, direct);
@@ -196,13 +207,13 @@ namespace keyPressAnimations
             #region collision
             foreach (Bullet b in bullets)
             {
-                if (b.bulletCollision(m, b) == true)
+                if (m.bulletCollision(m, b) == true)
                 {
                     gameTimer.Enabled = false;
                     winGame();
                 }
             }
-            if (m.monsterCollision(p, m) == true)
+            if (p.monsterCollision(p, m) == true)
             {
                 gameTimer.Enabled = false;
                 endGame();
@@ -219,8 +230,8 @@ namespace keyPressAnimations
             {
                 e.Graphics.FillRectangle(colours[b.colour], b.x, b.y, b.size, b.size);
             }
-            e.Graphics.DrawImage(p.images[p.i], p.x, p.y, p.size, p.size);
-            e.Graphics.DrawImage(m.mImages[1], m.x, m.y, m.size, m.size);
+            e.Graphics.DrawImage(p.images[p.pimage], p.x, p.y, p.size, p.size);
+            e.Graphics.DrawImage(m.mImages[m.mimage], m.x, m.y, m.size, m.size);
         }
 
         private void endGame()

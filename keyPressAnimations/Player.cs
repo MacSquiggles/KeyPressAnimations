@@ -8,44 +8,57 @@ namespace keyPressAnimations
 {
     class Player
     {
-        public int x, y, size, speed;
-        public int i = 2;
+        public int x, y, size, speed, pimage;
         public Image[] images;
 
-        public Player(int _x, int _y, int _size, int _speed)
+        public Player(int _x, int _y, int _size, int _speed, int _image)
         {
             x = _x;
             y = _y;
             size = _size;
             speed = _speed;
+            pimage = _image;
         }
         public void move(Player p, string direction)
         {
             if (direction == "left")
                 {
-                    i = 1;
+                    pimage = 1;
                     p.x -= p.speed;
                 }
             else if (direction == "right")
             {
-                i = 0;
+                pimage = 0;
                 p.x += p.speed;
             }
 
             else if (direction == "up")
             {
-                i = 2;
+                pimage = 2;
                 p.y -= p.speed;
             }
            else if(direction == "down")
             {
-                i = 3;
+                pimage = 3;
                     p.y += p.speed;
              }
             else
             {
-                i = 2;
+                pimage = 2;
 
+            }
+        }
+        public bool monsterCollision(Player p, Monster m)
+        {
+            Rectangle pRec = new Rectangle(p.x, p.y, p.size, p.size);
+            Rectangle mRec = new Rectangle(m.x, m.y, m.size, m.size);
+            if (pRec.IntersectsWith(mRec))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

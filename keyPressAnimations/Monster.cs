@@ -8,23 +8,50 @@ namespace keyPressAnimations
 {
     class Monster
     {
-        public int x, y, size, speed;
+        public int x, y, size, speed, mimage;
         public Image[] mImages;
 
-        public Monster(int _x, int _y, int _size, int _speed)
+        public Monster(int _x, int _y, int _size, int _speed, int _image)
         {
             x = _x;
             y = _y;
             size = _size;
             speed = _speed;
-            
+            mimage = _image;
         }
-
-        public bool monsterCollision(Player p, Monster m)
+        public void move(Monster m, string direction)
         {
-            Rectangle pRec = new Rectangle(p.x, p.y, p.size, p.size);
-            Rectangle mRec = new Rectangle(m.x, m.y, m.size, m.size);
-            if (pRec.IntersectsWith(mRec))
+            if (direction == "left")
+            {
+                mimage = 1;
+                m.x -= m.speed;
+            }
+            else if (direction == "right")
+            {
+                mimage = 0;
+                m.x += m.speed;
+            }
+
+            else if (direction == "up")
+            {
+                mimage = 2;
+                m.y -= m.speed;
+            }
+            else if (direction == "down")
+            {
+                mimage = 3;
+                m.y += m.speed;
+            }
+            else
+            {
+                mimage = 2;
+            }
+        }
+        public bool bulletCollision(Monster m, Bullet b)
+        {
+            Rectangle pRec = new Rectangle(m.x, m.y, m.size, m.size);
+            Rectangle bRec = new Rectangle(b.x, b.y, b.size, b.size);
+            if (pRec.IntersectsWith(bRec))
             {
                 return true;
             }

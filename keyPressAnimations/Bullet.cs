@@ -38,18 +38,6 @@ namespace keyPressAnimations
                 b.y += b.speed;
             }
         }
-        public bool bulletCollision(Monster m, Bullet b)
-        {
-            Rectangle pRec = new Rectangle(m.x, m.y, m.size, m.size);
-            Rectangle bRec = new Rectangle(b.x, b.y, b.size, b.size);
-            if (pRec.IntersectsWith(bRec))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+       
     }
 }
