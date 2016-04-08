@@ -29,27 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // gameTimer
+            // timer1
             // 
-            this.gameTimer.Interval = 16;
-            this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
+            this.timer1.Interval = 16;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // GameScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::keyPressAnimations.Properties.Resources.white_background;
+            this.BackColor = System.Drawing.Color.White;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "GameScreen";
-            this.Size = new System.Drawing.Size(800, 455);
-            this.Load += new System.EventHandler(this.GameScreen_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GameScreen_PreviewKeyDown);
+            this.Size = new System.Drawing.Size(898, 488);
+            this.Load += new System.EventHandler(this.GameScreen_Load_1);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint_1);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp_1);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GameScreen_PreviewKeyDown_1);
             this.ResumeLayout(false);
 
         }
@@ -57,5 +55,6 @@
         #endregion
 
         private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.Timer timer1;
     }
 }

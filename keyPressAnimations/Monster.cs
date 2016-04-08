@@ -49,7 +49,7 @@ namespace keyPressAnimations
         }
         public bool bulletCollision(Monster m, Bullet b)
         {
-            Rectangle pRec = new Rectangle(m.x, m.y, m.size, m.size);
+            Rectangle pRec = new Rectangle(m.x, m.y, 40, 40);
             Rectangle bRec = new Rectangle(b.x, b.y, b.size, b.size);
             if (pRec.IntersectsWith(bRec))
             {

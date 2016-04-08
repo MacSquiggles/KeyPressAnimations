@@ -93,9 +93,9 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap monster {
+        internal static System.Drawing.Bitmap mondown {
             get {
-                object obj = ResourceManager.GetObject("monster", resourceCulture);
+                object obj = ResourceManager.GetObject("mondown", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap monster2 {
+        internal static System.Drawing.Bitmap monLeft {
             get {
-                object obj = ResourceManager.GetObject("monster2", resourceCulture);
+                object obj = ResourceManager.GetObject("monLeft", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,19 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap monster3 {
+        internal static System.Drawing.Bitmap monRight {
             get {
-                object obj = ResourceManager.GetObject("monster3", resourceCulture);
+                object obj = ResourceManager.GetObject("monRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap monUp {
+            get {
+                object obj = ResourceManager.GetObject("monUp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,16 +146,6 @@ namespace keyPressAnimations.Properties {
         internal static System.Drawing.Bitmap up {
             get {
                 object obj = ResourceManager.GetObject("up", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap white_background {
-            get {
-                object obj = ResourceManager.GetObject("white background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

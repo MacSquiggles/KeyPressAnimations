@@ -41,10 +41,11 @@
             // playButton
             // 
             this.playButton.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.playButton.Font = new System.Drawing.Font("Pristina", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playButton.Location = new System.Drawing.Point(39, 606);
+            this.playButton.Font = new System.Drawing.Font("Segoe Script", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playButton.Location = new System.Drawing.Point(26, 394);
+            this.playButton.Margin = new System.Windows.Forms.Padding(2);
             this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(820, 79);
+            this.playButton.Size = new System.Drawing.Size(547, 51);
             this.playButton.TabIndex = 0;
             this.playButton.Text = "Play Game";
             this.playButton.UseVisualStyleBackColor = false;
@@ -53,17 +54,20 @@
             // introLabel
             // 
             this.introLabel.BackColor = System.Drawing.Color.White;
-            this.introLabel.Font = new System.Drawing.Font("Pristina", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.introLabel.Location = new System.Drawing.Point(6, 61);
+            this.introLabel.Font = new System.Drawing.Font("Segoe Script", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.introLabel.Location = new System.Drawing.Point(4, 40);
+            this.introLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.introLabel.Name = "introLabel";
-            this.introLabel.Size = new System.Drawing.Size(894, 529);
+            this.introLabel.Size = new System.Drawing.Size(596, 344);
             this.introLabel.TabIndex = 1;
             this.introLabel.Text = resources.GetString("introLabel.Text");
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.BackgroundImage = global::keyPressAnimations.Properties.Resources.down;
-            this.pictureBox1.Location = new System.Drawing.Point(502, 61);
+            this.pictureBox1.Location = new System.Drawing.Point(335, 40);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -72,8 +76,9 @@
             // 
             // monsterPictureBox
             // 
-            this.monsterPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("monsterPictureBox.BackgroundImage")));
-            this.monsterPictureBox.Location = new System.Drawing.Point(502, 149);
+            this.monsterPictureBox.BackgroundImage = global::keyPressAnimations.Properties.Resources.monLeft;
+            this.monsterPictureBox.Location = new System.Drawing.Point(335, 97);
+            this.monsterPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.monsterPictureBox.Name = "monsterPictureBox";
             this.monsterPictureBox.Size = new System.Drawing.Size(50, 50);
             this.monsterPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -83,11 +88,12 @@
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.Red;
-            this.exitButton.Font = new System.Drawing.Font("Pristina", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Black;
-            this.exitButton.Location = new System.Drawing.Point(833, 0);
+            this.exitButton.Location = new System.Drawing.Point(555, 0);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(64, 58);
+            this.exitButton.Size = new System.Drawing.Size(43, 38);
             this.exitButton.TabIndex = 4;
             this.exitButton.Text = "X";
             this.exitButton.UseVisualStyleBackColor = false;
@@ -95,7 +101,7 @@
             // 
             // IntroductionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::keyPressAnimations.Properties.Resources.background;
             this.Controls.Add(this.exitButton);
@@ -103,8 +109,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.introLabel);
             this.Controls.Add(this.playButton);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "IntroductionForm";
-            this.Size = new System.Drawing.Size(900, 700);
+            this.Size = new System.Drawing.Size(600, 455);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monsterPictureBox)).EndInit();
             this.ResumeLayout(false);

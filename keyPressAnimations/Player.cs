@@ -50,8 +50,8 @@ namespace keyPressAnimations
         }
         public bool monsterCollision(Player p, Monster m)
         {
-            Rectangle pRec = new Rectangle(p.x, p.y, p.size, p.size);
-            Rectangle mRec = new Rectangle(m.x, m.y, m.size, m.size);
+            Rectangle pRec = new Rectangle(p.x, p.y, 40, 40);
+            Rectangle mRec = new Rectangle(m.x, m.y, 40, 40);
             if (pRec.IntersectsWith(mRec))
             {
                 return true;

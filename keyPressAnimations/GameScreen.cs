@@ -13,8 +13,8 @@ namespace keyPressAnimations
     {
         #region Variables, brushes and starting set up
         //initial starting points for player
-        Player p = new Player(400, 300, 53, 8);
-        Monster m = new Monster(100, 300, 53, 5);
+        Player p = new Player(400, 300, 53, 8, 2);
+        Monster m = new Monster(100, 300, 53, 3, 2);
 
         //Variables
         public static string title = "";
@@ -45,19 +45,20 @@ namespace keyPressAnimations
         {
             InitializeComponent();
             p.images = new Image[] { Properties.Resources.right, Properties.Resources.left, Properties.Resources.up, Properties.Resources.down };
-            m.mImages = new Image[] { Properties.Resources.monster, Properties.Resources.monster2, Properties.Resources.monster3 };
+            m.mImages = new Image[] { Properties.Resources.monRight, Properties.Resources.monLeft, Properties.Resources.monUp, Properties.Resources.mondown };
             colours = new SolidBrush[] { purpleBrush, blueBrush, greenBrush };
         }
 
-        private void GameScreen_Load(object sender, EventArgs e)
+
+        private void GameScreen_Load_1(object sender, EventArgs e)
         {
             this.Focus();
             //start the timer when the program starts
-            gameTimer.Enabled = true;
-            gameTimer.Start();
+            timer1.Enabled = true;
+            timer1.Start();
         }
 
-        private void GameScreen_KeyUp(object sender, KeyEventArgs e)
+        private void GameScreen_KeyUp_1(object sender, KeyEventArgs e)
         {
             //check to see if a key has been released and set its KeyDown value to false if it has
             switch (e.KeyCode)
@@ -82,7 +83,7 @@ namespace keyPressAnimations
             }
         }
 
-        private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        private void GameScreen_PreviewKeyDown_1(object sender, PreviewKeyDownEventArgs e)
         {
             //check to see if a key is pressed and set is KeyDown value to true if it has
             switch (e.KeyCode)
@@ -107,7 +108,18 @@ namespace keyPressAnimations
             }
         }
 
-        private void gameTimer_Tick(object sender, EventArgs e)
+        private void GameScreen_Paint_1(object sender, PaintEventArgs e)
+        {
+            //draw rectangle to screen
+            foreach (Bullet b in bullets)
+            {
+                e.Graphics.FillRectangle(colours[b.colour], b.x, b.y, b.size, b.size);
+            }
+            e.Graphics.DrawImage(p.images[p.pimage], p.x, p.y, p.size, p.size);
+            e.Graphics.DrawImage(m.mImages[m.mimage], m.x, m.y, m.size, m.size);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
             #region movePlayer
             if (leftArrowDown && p.x > 0)
@@ -150,7 +162,7 @@ namespace keyPressAnimations
             #region moveBullet
             if (spaceArrowDown && fireOK == true)
             {
-                Bullet b = new Bullet(p.x + (p.size/2), p.y + (p.size / 2), bulletSize, bulletSpeed, rand.Next(0, 3));
+                Bullet b = new Bullet(p.x + (p.size / 2), p.y + (p.size / 2), bulletSize, bulletSpeed, rand.Next(0, 3));
                 bullets.Add(b);
                 if (p.pimage == 0)
                 {
@@ -168,7 +180,7 @@ namespace keyPressAnimations
                 {
                     direct = "down";
                 }
-               fireOK = false;
+                fireOK = false;
             }
 
             foreach (Bullet b in bullets)
@@ -209,29 +221,18 @@ namespace keyPressAnimations
             {
                 if (m.bulletCollision(m, b) == true)
                 {
-                    gameTimer.Enabled = false;
+                    timer1.Enabled = false;
                     winGame();
                 }
             }
             if (p.monsterCollision(p, m) == true)
             {
-                gameTimer.Enabled = false;
+                timer1.Enabled = false;
                 endGame();
             }
             #endregion
             //refresh the screen, which causes the Form1_Paint method to run
             Refresh();
-        }
-
-        private void GameScreen_Paint(object sender, PaintEventArgs e)
-        {
-            //draw rectangle to screen
-            foreach (Bullet b in bullets)
-            {
-                e.Graphics.FillRectangle(colours[b.colour], b.x, b.y, b.size, b.size);
-            }
-            e.Graphics.DrawImage(p.images[p.pimage], p.x, p.y, p.size, p.size);
-            e.Graphics.DrawImage(m.mImages[m.mimage], m.x, m.y, m.size, m.size);
         }
 
         private void endGame()
