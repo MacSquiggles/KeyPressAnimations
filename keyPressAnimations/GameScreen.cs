@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace keyPressAnimations
@@ -12,15 +13,13 @@ namespace keyPressAnimations
     public partial class GameScreen : UserControl
     {
         #region Variables, brushes and starting set up
-        //initial starting points for player
-        Player p = new Player(400, 300, 53, 8, 2);
-        Monster m = new Monster(100, 300, 53, 3, 2);
 
         //Variables
         public static string title = "";
         public string direct = "";
         int bulletSpeed = 20;
         int bulletSize = 10;
+        int num;
         bool fireOK = true;
 
         //Brushes for the bullets
@@ -32,13 +31,19 @@ namespace keyPressAnimations
         SolidBrush[] colours;
 
         //creates a random number
-        Random rand = new Random();
+       public Random rand = new Random();
+
+
+        //initial starting points for player
+        Player p = new Player(800, 300, 53, 8, 2);
+        Monster m = new Monster(0, 300, 53, 4, 2);
 
         //determines whether a key is being pressed or not
         Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown, spaceArrowDown;
 
         //creates a list of bullets
         List<Bullet> bullets = new List<Bullet>();
+        string[] saying;
         #endregion
 
         public GameScreen()
@@ -46,6 +51,7 @@ namespace keyPressAnimations
             InitializeComponent();
             p.images = new Image[] { Properties.Resources.right, Properties.Resources.left, Properties.Resources.up, Properties.Resources.down };
             m.mImages = new Image[] { Properties.Resources.monRight, Properties.Resources.monLeft, Properties.Resources.monUp, Properties.Resources.mondown };
+            saying = new string[] { "That yellow really compliments... \nYOUR FACE", "Kindness is blindness", "It's been such a pleasure....", "Hope to see you again...\nNOT", "There was something on your face... \nIt was PAIN" };
             colours = new SolidBrush[] { purpleBrush, blueBrush, greenBrush };
         }
 
@@ -248,6 +254,10 @@ namespace keyPressAnimations
 
         private void winGame()
         {
+            num = rand.Next(0, 4);
+            sarcasmLabel.Text = saying[num];
+            Refresh();
+            Thread.Sleep(2000);
             title = "You win!!!!!!";
             EndScreen es = new EndScreen();
             Form f = this.FindForm();

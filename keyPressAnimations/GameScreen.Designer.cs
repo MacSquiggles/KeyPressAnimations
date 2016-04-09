@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.sarcasmLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -37,10 +38,21 @@
             this.timer1.Interval = 16;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // sarcasmLabel
+            // 
+            this.sarcasmLabel.BackColor = System.Drawing.Color.Transparent;
+            this.sarcasmLabel.Font = new System.Drawing.Font("Segoe Script", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sarcasmLabel.Location = new System.Drawing.Point(-1, 163);
+            this.sarcasmLabel.Name = "sarcasmLabel";
+            this.sarcasmLabel.Size = new System.Drawing.Size(900, 131);
+            this.sarcasmLabel.TabIndex = 0;
+            this.sarcasmLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GameScreen
             // 
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.sarcasmLabel);
             this.DoubleBuffered = true;
             this.Name = "GameScreen";
             this.Size = new System.Drawing.Size(898, 488);
@@ -56,5 +68,6 @@
 
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label sarcasmLabel;
     }
 }
