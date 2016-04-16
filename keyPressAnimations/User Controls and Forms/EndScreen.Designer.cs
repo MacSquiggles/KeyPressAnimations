@@ -38,15 +38,15 @@
             // 
             this.gameOverLabel.BackColor = System.Drawing.Color.Transparent;
             this.gameOverLabel.Font = new System.Drawing.Font("Segoe Script", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gameOverLabel.Location = new System.Drawing.Point(38, 117);
+            this.gameOverLabel.Location = new System.Drawing.Point(38, 61);
             this.gameOverLabel.Name = "gameOverLabel";
-            this.gameOverLabel.Size = new System.Drawing.Size(820, 145);
+            this.gameOverLabel.Size = new System.Drawing.Size(820, 337);
             this.gameOverLabel.TabIndex = 0;
             this.gameOverLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // playAgainButton
             // 
-            this.playAgainButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.playAgainButton.BackColor = System.Drawing.Color.SlateGray;
             this.playAgainButton.Font = new System.Drawing.Font("Segoe Script", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playAgainButton.Location = new System.Drawing.Point(38, 551);
             this.playAgainButton.Name = "playAgainButton";
@@ -71,7 +71,7 @@
             // 
             // menuButton
             // 
-            this.menuButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.menuButton.BackColor = System.Drawing.Color.SlateGray;
             this.menuButton.Font = new System.Drawing.Font("Segoe Script", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuButton.Location = new System.Drawing.Point(38, 438);
             this.menuButton.Name = "menuButton";
@@ -85,13 +85,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::keyPressAnimations.Properties.Resources.background;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::keyPressAnimations.Properties.Resources.bleu;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playAgainButton);
             this.Controls.Add(this.gameOverLabel);
             this.Name = "EndScreen";
-            this.Size = new System.Drawing.Size(900, 700);
+            this.Size = new System.Drawing.Size(898, 698);
             this.Load += new System.EventHandler(this.EndScreen_Load);
             this.ResumeLayout(false);
 

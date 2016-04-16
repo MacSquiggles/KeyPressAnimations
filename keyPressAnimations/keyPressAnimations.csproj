@@ -46,45 +46,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bullet.cs" />
-    <Compile Include="EndScreen.cs">
+    <Compile Include="Objects\Bullet.cs" />
+    <Compile Include="User Controls and Forms\EndScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EndScreen.Designer.cs">
+    <Compile Include="User Controls and Forms\EndScreen.Designer.cs">
       <DependentUpon>EndScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="User Controls and Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="User Controls and Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameScreen.cs">
+    <Compile Include="User Controls and Forms\GameScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GameScreen.Designer.cs">
+    <Compile Include="User Controls and Forms\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="IntroductionForm.cs">
+    <Compile Include="User Controls and Forms\IntroductionForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="IntroductionForm.Designer.cs">
+    <Compile Include="User Controls and Forms\IntroductionForm.Designer.cs">
       <DependentUpon>IntroductionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Monster.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Objects\Monster.cs" />
+    <Compile Include="Objects\Player.cs" />
+    <Compile Include="User Controls and Forms\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="EndScreen.resx">
+    <EmbeddedResource Include="User Controls and Forms\EndScreen.resx">
       <DependentUpon>EndScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="User Controls and Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GameScreen.resx">
+    <EmbeddedResource Include="User Controls and Forms\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IntroductionForm.resx">
+    <EmbeddedResource Include="User Controls and Forms\IntroductionForm.resx">
       <DependentUpon>IntroductionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -154,6 +154,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\monUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subtle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pastel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bleu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bleu1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

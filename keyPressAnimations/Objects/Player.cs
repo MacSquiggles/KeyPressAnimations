@@ -8,7 +8,10 @@ namespace keyPressAnimations
 {
     class Player
     {
+        //creates all properties needed to make the player
         public int x, y, size, speed, pimage;
+
+        //creates an image array to hold the players image based on direction
         public Image[] images;
 
         public Player(int _x, int _y, int _size, int _speed, int _image)
@@ -19,6 +22,13 @@ namespace keyPressAnimations
             speed = _speed;
             pimage = _image;
         }
+
+        /// <summary>
+        /// Moves the player in the desired direction and sets pimage equal to the 
+        /// image the character should have
+        /// </summary>
+        /// <param name="p">the object player</param>
+        /// <param name="direction"></param>
         public void move(Player p, string direction)
         {
             if (direction == "left")
@@ -48,6 +58,13 @@ namespace keyPressAnimations
 
             }
         }
+
+        /// <summary>
+        /// draws rectangles around the player and monster and checks for collision
+        /// </summary>
+        /// <param name="p">the object player</param>
+        /// <param name="m">the object monster</param>
+        /// <returns></returns>
         public bool monsterCollision(Player p, Monster m)
         {
             Rectangle pRec = new Rectangle(p.x, p.y, 40, 40);

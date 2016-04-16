@@ -18,6 +18,7 @@ namespace keyPressAnimations
 
         private void playButton_Click(object sender, EventArgs e)
         {
+            //If the play button is clicked then the game screen opens
             GameScreen gs = new GameScreen();
             Form f = this.FindForm();
             f.Controls.Remove(this);
@@ -28,6 +29,7 @@ namespace keyPressAnimations
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            //the game will close if the exit button is clicked
             Application.Exit();
         }
     }

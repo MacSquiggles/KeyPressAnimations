@@ -73,6 +73,26 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bleu {
+            get {
+                object obj = ResourceManager.GetObject("bleu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bleu1 {
+            get {
+                object obj = ResourceManager.GetObject("bleu1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap down {
             get {
                 object obj = ResourceManager.GetObject("down", resourceCulture);
@@ -133,9 +153,29 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pastel {
+            get {
+                object obj = ResourceManager.GetObject("pastel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap right {
             get {
                 object obj = ResourceManager.GetObject("right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap subtle {
+            get {
+                object obj = ResourceManager.GetObject("subtle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

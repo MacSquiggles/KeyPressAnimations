@@ -40,7 +40,7 @@
             // 
             // playButton
             // 
-            this.playButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.playButton.BackColor = System.Drawing.Color.SlateGray;
             this.playButton.Font = new System.Drawing.Font("Segoe Script", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playButton.Location = new System.Drawing.Point(39, 606);
             this.playButton.Name = "playButton";
@@ -98,14 +98,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::keyPressAnimations.Properties.Resources.background;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::keyPressAnimations.Properties.Resources.bleu1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.monsterPictureBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.introLabel);
             this.Controls.Add(this.playButton);
             this.Name = "IntroductionForm";
-            this.Size = new System.Drawing.Size(900, 700);
+            this.Size = new System.Drawing.Size(898, 698);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monsterPictureBox)).EndInit();
             this.ResumeLayout(false);
