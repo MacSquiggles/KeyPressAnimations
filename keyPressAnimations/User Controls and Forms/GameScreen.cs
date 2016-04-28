@@ -229,6 +229,7 @@ namespace keyPressAnimations
         /// </summary>
         private void endGame()
         {
+            score = 0;
             title = "You Lose!!" + "\n Your score: " + score;
             EndScreen es = new EndScreen();
             Form f = this.FindForm();
